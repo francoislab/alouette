@@ -19,27 +19,41 @@ class Alouette {
 	 * @return string
 	 */
 	static public function chanson($oiseau, $qualite, $action, $membres) {
+		
+
+
 		$resultat = '';
 		$resultat .= '<div class="chanson">';
-		$resultat .= '<div class="strophe">';
-		$resultat .= '<div class="refrain">';
-		$resultat .= '<div class="appel">';
-		$resultat .= '<div>'.$oiseau.', '.$qualite.' '.$oiseau.'</div>';
-		$resultat .= '<div>'.$oiseau.', je '.$action.'.</div>';
+		$etats = ["appel", "reponse"];
+		
+		foreach ($membres as $idx => $qualite){
+			
+			$resultat .= '<div class="strophe">';
+			$resultat .= '<div class="refrain">';
+			$resultat .= '<div class="appel">';
+			$resultat .= '<div>'.$oiseau.', '.$qualite.' '.$oiseau.'</div>';
+			$resultat .= '<div>'.$oiseau.', je '.$action.'.</div>';
+			$resultat .= '</div>';
+			$resultat .= '<div class="reponse">';
+			$resultat .= '<div>'.$oiseau.', '.$qualite.' '.$oiseau.'</div>';
+			$resultat .= '<div>'.$oiseau.', je '.$action.'.</div>';
+			$resultat .= '</div>';
+			$resultat .= '</div>';
+
+			foreach ($etats as $id => $wat){
+
+				$resultat .= '<div class='.$wat.'>Je '.$action.' '.$qualite.'</div>';
+			}
+
+			$resultat .= '<div class="appel">'.$qualite.'</div>';
+			$resultat .= '<div class="reponse">'.$qualite.'</div>';
+			$resultat .= '<div>Aaaah . . . </div>';
+			$resultat .= '</div>';
+		}
 		$resultat .= '</div>';
-		$resultat .= '<div class="reponse">';
-		$resultat .= '<div>'.$oiseau.', '.$qualite.' '.$oiseau.'</div>';
-		$resultat .= '<div>'.$oiseau.', je '.$action.'.</div>';
-		$resultat .= '</div>';
-		$resultat .= '</div>';
-		$resultat .= '<div class="appel">Je '.$action.' le dos</div>';
-		$resultat .= '<div class="reponse">Je '.$action.' le dos</div>';
-		$resultat .= '<div class="appel">Et le dos</div>';
-		$resultat .= '<div class="reponse">Et le dos</div>';
-		$resultat .= '<div>Aaaah . . . </div>';
-		$resultat .= '</div>';
-		$resultat .= '</div>';
+
 		return $resultat;
+
 	}
 	/** Méthode strophe
 	 * Retourne une strophe au complet
