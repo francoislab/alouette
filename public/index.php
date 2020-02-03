@@ -64,7 +64,7 @@ include("../Alouette.php");
 						</div>
 					</div>
 					<?php
-						echo Alouette::actionMembre('battre','GROSBUM');
+						echo Alouette::actionMembre('battre','gros nez');
 					?>
 					<div class="appel">Je te plumerai le bec</div>
 					<div class="reponse">Je te plumerai le bec</div>
